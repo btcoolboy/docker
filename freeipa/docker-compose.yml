@@ -1,0 +1,12 @@
+version: '2.4'
+services:
+  freeipa:
+    container_name: freeipa
+    image: 10.200.101.20:8083/freeipa/freeipa-server:rocky-8-4.9.8
+    volumes:
+      - /data/freeipa-data:/data:Z
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    network_mode: "host"
+    restart: always
+    environment:
+      - IPA_SERVER_HOSTNAME=vm-data-20.cloud.lab

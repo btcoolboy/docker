@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+  samba:
+    container_name: samba
+    image: 10.200.101.20:8083/dperson/samba
+    mem_limit: 512m
+    volumes:
+      - /data/backup:/mount
+      - /var/log/samba:/var/log/samba
+      - /var/cache/samba:/var/cache/samba
+      - /run/samba:/run/samba
+      - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone
+    network_mode: "host"
+    restart: always
+    privileged: true
+    environment:
+      - USER=debian;1231
+      - USERID=1000
+      - GROUPID=1000
+      - SHARE=share;/mount/;yes;no;no;all;none

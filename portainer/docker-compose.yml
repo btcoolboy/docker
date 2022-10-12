@@ -1,0 +1,11 @@
+version: '2.4'
+services:
+  portainer:
+    container_name: portainer
+    image: 10.200.101.20:8083/portainer/portainer-ce:linux-amd64-2.15.1
+    volumes:
+      - /data/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
+    restart: always
+    privileged: true

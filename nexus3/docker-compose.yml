@@ -1,0 +1,14 @@
+version: '2.4'
+services:
+  nexus3:
+    container_name: nexus3
+    image: 10.200.101.20:8083/sonatype/nexus3:3.42.0
+    mem_limit: 4096m
+    volumes:
+      - /data/nexus-data:/nexus-data
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    restart: always
+    privileged: true
