@@ -10,5 +10,6 @@ services:
       - "8081:8081"
       - "8082:8082"
       - "8083:8083"
+      - "8084:8084"
     restart: always
     privileged: true
