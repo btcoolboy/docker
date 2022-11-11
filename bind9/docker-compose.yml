@@ -1,0 +1,15 @@
+version: '2.4'
+services:
+  bind9:
+    container_name: bind9
+    image: 10.200.101.20:8083/ubuntu/bind9:9.18-22.04_beta
+    mem_limit: 4096m
+    environment:
+      BIND9_USER: bind
+      TZ: Asia/Shanghai
+    volumes:
+      - /docker/bind9/etc/bind/named.conf:/etc/bind/named.conf
+      - /docker/bind9/var/cache/bind:/var/cache/bind
+      - /docker/bind9/var/lib/bind:/var/lib/bind
+    network_mode: "host"
+    restart: always
