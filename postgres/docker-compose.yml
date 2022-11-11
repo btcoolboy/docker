@@ -13,12 +13,13 @@ services:
   adminer:
     container_name: adminer
     image: 10.200.101.20:8083/adminer
+    mem_limit: 1024m
     network_mode: "host"
     restart: always
   portainer:
     container_name: portainer
-    image: 10.200.101.20:8083/portainer/portainer-ce:linux-amd64-2.15.1
-    mem_limit: 4096m
+    image: 10.200.101.20:8083/portainer/portainer-ce:latest
+    mem_limit: 1024m
     volumes:
       - /docker/portainer/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
