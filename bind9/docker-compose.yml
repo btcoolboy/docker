@@ -8,7 +8,7 @@ services:
       BIND9_USER: bind
       TZ: Asia/Shanghai
     volumes:
-      - /docker/bind9/etc/bind/named.conf:/etc/bind/named.conf
+      - ./etc/bind/named.conf:/etc/bind/named.conf
       - /docker/bind9/var/cache/bind:/var/cache/bind
       - /docker/bind9/var/lib/bind:/var/lib/bind
     network_mode: "host"
