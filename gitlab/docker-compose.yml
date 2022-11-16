@@ -1,0 +1,18 @@
+version: '2.4'
+
+services:
+  gitlab:
+    container_name: gitlab
+    image: 10.200.101.20:8083/gitlab/gitlab-ce:latest
+    mem_limit: 4096m
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.cloud.lab'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+    volumes:
+      - /docker/etc/gitlab:/etc/gitlab
+      - /docker/var/log/gitlab:/var/log/gitlab
+      - /docker/var/opt/gitlab:/var/opt/gitlab
+    shm_size: '256m'
+    network_mode: "host"
