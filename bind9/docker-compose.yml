@@ -9,7 +9,10 @@ services:
       TZ: Asia/Shanghai
     volumes:
       - ./etc/bind/named.conf:/etc/bind/named.conf
-      - /docker/bind9/var/cache/bind:/var/cache/bind
-      - /docker/bind9/var/lib/bind:/var/lib/bind
+      - var_cache_bind_vol:/var/cache/bind
+      - var_lib_bind_vol:/var/lib/bind
     network_mode: "host"
     restart: always
+volumes:
+  var_cache_bind_vol:
+  var_lib_bind_vol:
