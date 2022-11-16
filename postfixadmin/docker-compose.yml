@@ -1,0 +1,29 @@
+version: '2.4'
+
+services:
+  mysql:
+    container_name: mysql
+    image: 10.200.101.20:8083/mysql:5.7
+    restart: always
+    mem_limit: 4096m
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: postfixadmin
+      MYSQL_USER: postfixadmin
+      MYSQL_PASSWORD: postfixadmin
+    network_mode: "host"
+
+  postfixadmin:
+    container_name: postfixadmin
+    depends_on:
+      - mysql
+    image: 10.200.101.20:8083/postfixadmin
+    restart: always
+    mem_limit: 4096m
+    environment:
+      POSTFIXADMIN_DB_TYPE: mysqli
+      POSTFIXADMIN_DB_HOST: 127.0.0.1
+      POSTFIXADMIN_DB_USER: postfixadmin
+      POSTFIXADMIN_DB_NAME: postfixadmin
+      POSTFIXADMIN_DB_PASSWORD: postfixadmin
+    network_mode: "host"
