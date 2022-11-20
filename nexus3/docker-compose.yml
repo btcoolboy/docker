@@ -13,4 +13,3 @@ services:
       - "0.0.0.0:8083:8083"
       - "0.0.0.0:8084:8084"
     restart: always
-    privileged: true

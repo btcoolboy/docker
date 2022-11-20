@@ -13,4 +13,3 @@ services:
       - /var/spool/squid:/var/spool/squid
     network_mode: "host"
     restart: always
-    privileged: true
