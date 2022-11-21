@@ -1,5 +1,5 @@
-- ubuntu
-- docker
+'ubuntu'
+'docker'
 - bind9
 - freeipa
 - gitlab
