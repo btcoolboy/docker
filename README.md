@@ -1,5 +1,6 @@
 `ubuntu` 
 `docker`
+`nexus3`
 - bind9
 - freeipa
 - gitlab
