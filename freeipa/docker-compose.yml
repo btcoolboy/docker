@@ -3,7 +3,7 @@ version: '2.4'
 services:
   freeipa:
     container_name: freeipa
-    image: 10.200.101.20:8083/freeipa/freeipa-server:rocky-8-4.9.8
+    image: 10.200.101.20:8083/freeipa/freeipa-server:rocky-9-4.10.0
     mem_limit: 4096m
     volumes:
       - /data/freeipa-data:/data:Z

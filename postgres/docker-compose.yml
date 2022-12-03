@@ -17,3 +17,13 @@ services:
     mem_limit: 1024m
     network_mode: "host"
     restart: always
+  nginx:
+    container_name: nginx
+    image: 10.200.101.20:8083/nginx
+    mem_limit: 1024m
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/ssl/cert.crt:/etc/nginx/ssl/cert.crt
+      - ./etc/nginx/ssl/cert.key:/etc/nginx/ssl/cert.key
+    network_mode: "host"
+    restart: always
