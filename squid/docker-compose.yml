@@ -10,6 +10,9 @@ services:
       - /etc/localtime:/etc/localtime
       - /etc/timezone:/etc/timezone
       - /var/log/squid:/var/log/squid
-      - /var/spool/squid:/var/spool/squid
+      - var_spool_squid_vol:/var/spool/squid
     network_mode: "host"
     restart: always
+
+volumes:
+  var_spool_squid_vol:
