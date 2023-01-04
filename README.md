@@ -1,3 +1,3 @@
 `ubuntu` 
-`docker`
+`docker compose`
 `nexus3`
