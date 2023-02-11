@@ -3,7 +3,7 @@ version: '2.4'
 services:
   nexus3:
     container_name: nexus3
-    image: 10.200.101.20:8083/sonatype/nexus3:3.45.0
+    image: 10.200.101.20:8083/sonatype/nexus3:3.45.1
     mem_limit: 4096m
     volumes:
       - /data/nexus-data:/nexus-data
