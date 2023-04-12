@@ -1,10 +1,9 @@
-version: '2.4'
+version: '3.9'
 
 services:
   bind9:
     container_name: bind9
     image: 10.200.101.20:8083/ubuntu/bind9:9.18-22.04_beta
-    mem_limit: 4096m
     environment:
       BIND9_USER: bind
       TZ: Asia/Shanghai
@@ -13,7 +12,10 @@ services:
       - var_cache_bind_vol:/var/cache/bind
       - var_lib_bind_vol:/var/lib/bind
     network_mode: "host"
-    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4096M
 
 volumes:
   var_cache_bind_vol:

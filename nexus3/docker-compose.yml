@@ -1,10 +1,9 @@
-version: '2.4'
+version: '3.9'
 
 services:
   nexus3:
     container_name: nexus3
-    image: 10.200.101.20:8083/sonatype/nexus3:3.49.0
-    mem_limit: 4096m
+    image: 10.200.101.20:8083/sonatype/nexus3:3.51.0
     volumes:
       - /data/nexus-data:/nexus-data
     ports:
@@ -12,4 +11,7 @@ services:
       - "0.0.0.0:8082:8082"
       - "0.0.0.0:8083:8083"
       - "0.0.0.0:8084:8084"
-    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4096M

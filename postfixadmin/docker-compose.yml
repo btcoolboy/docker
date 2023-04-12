@@ -1,11 +1,9 @@
-version: '2.4'
+version: '3.9'
 
 services:
   mysql:
     container_name: mysql
     image: 10.200.101.20:8083/mysql:5.7
-    restart: always
-    mem_limit: 4096m
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: postfixadmin
@@ -18,8 +16,6 @@ services:
     depends_on:
       - mysql
     image: 10.200.101.20:8083/postfixadmin
-    restart: always
-    mem_limit: 4096m
     environment:
       POSTFIXADMIN_DB_TYPE: mysqli
       POSTFIXADMIN_DB_HOST: 127.0.0.1

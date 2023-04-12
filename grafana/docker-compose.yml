@@ -1,12 +1,14 @@
-version: '2.4'
+version: '3.9'
 
 services:
   grafana:
     container_name: grafana
     image: 10.200.101.20:8083/grafana/grafana-oss
-    mem_limit: 4096m
     volumes:
       - /docker/var/lib/grafana:/var/lib/grafana
       - /docker/var/log/grafana:/var/log/grafana
     network_mode: "host"
-    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4096M

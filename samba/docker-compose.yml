@@ -1,10 +1,9 @@
-version: '2.4'
+version: '3.9'
 
 services:
   samba:
     container_name: samba
     image: 10.200.101.20:8083/dperson/samba
-    mem_limit: 512m
     volumes:
       - /data/backup:/mount
       - /var/log/samba:/var/log/samba
@@ -19,3 +18,7 @@ services:
       - USERID=1000
       - GROUPID=1000
       - SHARE=share;/mount/;yes;no;no;all;none
+    deploy:
+      resources:
+        limits:
+          memory: 512M
