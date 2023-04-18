@@ -9,9 +9,9 @@ services:
         external_url 'https://gitlab.cloud.lab'
         gitlab_rails['gitlab_shell_ssh_port'] = 2224
     volumes:
-      - /docker/etc/gitlab:/etc/gitlab
-      - /docker/var/log/gitlab:/var/log/gitlab
-      - /docker/var/opt/gitlab:/var/opt/gitlab
+      - /etc/gitlab:/etc/gitlab
+      - /var/log/gitlab:/var/log/gitlab
+      - /var/opt/gitlab:/var/opt/gitlab
     shm_size: '256m'
     network_mode: "host"
     deploy:

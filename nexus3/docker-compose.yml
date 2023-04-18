@@ -3,15 +3,30 @@ version: '3.9'
 services:
   nexus3:
     container_name: nexus3
-    image: 10.200.101.20:8083/sonatype/nexus3:3.51.0
+    image: registry-docker.cloud.lab/sonatype/nexus3:3.51.0
     volumes:
-      - /data/nexus-data:/nexus-data
+      - /nexus-data:/nexus-data
     ports:
       - "0.0.0.0:8081:8081"
       - "0.0.0.0:8082:8082"
       - "0.0.0.0:8083:8083"
       - "0.0.0.0:8084:8084"
+      - "0.0.0.0:8085:8085"
     deploy:
       resources:
         limits:
           memory: 4096M
+    restart: always
+  nginx:
+    container_name: nginx
+    image: registry-docker.cloud.lab/nginx:stable
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/ssl/cert.crt:/etc/nginx/ssl/cert.crt
+      - ./etc/nginx/ssl/cert.key:/etc/nginx/ssl/cert.key
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    network_mode: "host"
+    restart: always
