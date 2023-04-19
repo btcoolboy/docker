@@ -3,7 +3,7 @@ version: '3.9'
 services:
   bind9:
     container_name: bind9
-    image: 10.200.101.20:8083/ubuntu/bind9:9.18-22.04_beta
+    image: registry-docker.cloud.lab/ubuntu/bind9:9.18-22.04_beta
     environment:
       BIND9_USER: bind
       TZ: Asia/Shanghai

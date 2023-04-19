@@ -1,65 +1,65 @@
 services:
   vulnerability-tests:
-    image: 10.200.101.20:8083/greenbone/vulnerability-tests
+    image: registry-docker.cloud.lab/greenbone/vulnerability-tests
     environment:
       STORAGE_PATH: /var/lib/openvas/22.04/vt-data/nasl
     volumes:
       - vt_data_vol:/mnt
 
   notus-data:
-    image: 10.200.101.20:8083/greenbone/notus-data
+    image: registry-docker.cloud.lab/greenbone/notus-data
     volumes:
       - notus_data_vol:/mnt
 
   scap-data:
-    image: 10.200.101.20:8083/greenbone/scap-data
+    image: registry-docker.cloud.lab/greenbone/scap-data
     volumes:
       - scap_data_vol:/mnt
 
   cert-bund-data:
-    image: 10.200.101.20:8083/greenbone/cert-bund-data
+    image: registry-docker.cloud.lab/greenbone/cert-bund-data
     volumes:
       - cert_data_vol:/mnt
 
   dfn-cert-data:
-    image: 10.200.101.20:8083/greenbone/dfn-cert-data
+    image: registry-docker.cloud.lab/greenbone/dfn-cert-data
     volumes:
       - cert_data_vol:/mnt
     depends_on:
       - cert-bund-data
 
   data-objects:
-    image: 10.200.101.20:8083/greenbone/data-objects
+    image: registry-docker.cloud.lab/greenbone/data-objects
     volumes:
       - data_objects_vol:/mnt
 
   report-formats:
-    image: 10.200.101.20:8083/greenbone/report-formats
+    image: registry-docker.cloud.lab/greenbone/report-formats
     volumes:
       - data_objects_vol:/mnt
     depends_on:
       - data-objects
 
   gpg-data:
-    image: 10.200.101.20:8083/greenbone/gpg-data
+    image: registry-docker.cloud.lab/greenbone/gpg-data
     volumes:
       - gpg_data_vol:/mnt
 
   redis-server:
-    image: 10.200.101.20:8083/greenbone/redis-server
+    image: registry-docker.cloud.lab/greenbone/redis-server
     restart: on-failure
     volumes:
       - redis_socket_vol:/run/redis/
 
   pg-gvm:
-    image: 10.200.101.20:8083/greenbone/pg-gvm:stable
+    image: registry-docker.cloud.lab/greenbone/pg-gvm:stable
     restart: on-failure
     volumes:
       - psql_data_vol:/var/lib/postgresql
       - psql_socket_vol:/var/run/postgresql
 
   gvmd:
-    image: 10.200.101.20:8083/greenbone/gvmd:stable
+    image: registry-docker.cloud.lab/greenbone/gvmd:stable
     restart: on-failure
     volumes:
       - gvmd_data_vol:/var/lib/gvm
@@ -86,7 +86,7 @@ services:
         condition: service_completed_successfully
 
   gsa:
-    image: 10.200.101.20:8083/greenbone/gsa:stable
+    image: registry-docker.cloud.lab/greenbone/gsa:stable
     restart: on-failure
     ports:
       - 80:80
@@ -96,7 +96,7 @@ services:
       - gvmd
 
   ospd-openvas:
-    image: 10.200.101.20:8083/greenbone/ospd-openvas:stable
+    image: registry-docker.cloud.lab/greenbone/ospd-openvas:stable
     restart: on-failure
     init: true
     hostname: ospd-openvas.local
@@ -135,7 +135,7 @@ services:
 
   mqtt-broker:
     restart: on-failure
-    image: 10.200.101.20:8083/greenbone/mqtt-broker
+    image: registry-docker.cloud.lab/greenbone/mqtt-broker
     ports:
       - 1883:1883
     networks:
@@ -146,7 +146,7 @@ services:
 
   notus-scanner:
     restart: on-failure
-    image: 10.200.101.20:8083/greenbone/notus-scanner:stable
+    image: registry-docker.cloud.lab/greenbone/notus-scanner:stable
     volumes:
       - notus_data_vol:/var/lib/notus
       - gpg_data_vol:/etc/openvas/gnupg
@@ -159,7 +159,7 @@ services:
       - vulnerability-tests
 
   gvm-tools:
-    image: 10.200.101.20:8083/greenbone/gvm-tools
+    image: registry-docker.cloud.lab/greenbone/gvm-tools
     volumes:
       - gvmd_socket_vol:/run/gvmd
       - ospd_openvas_socket_vol:/run/ospd

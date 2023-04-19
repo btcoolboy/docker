@@ -3,7 +3,7 @@ version: '3.9'
 services:
   samba:
     container_name: samba
-    image: 10.200.101.20:8083/dperson/samba
+    image: registry-docker.cloud.lab/dperson/samba
     volumes:
       - /data/backup:/mount
       - /var/log/samba:/var/log/samba

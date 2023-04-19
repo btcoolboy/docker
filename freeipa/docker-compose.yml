@@ -3,7 +3,7 @@ version: '3.9'
 services:
   freeipa:
     container_name: freeipa
-    image: 10.200.101.20:8083/freeipa/freeipa-server:rocky-9-4.10.0
+    image: registry-docker.cloud.lab/freeipa/freeipa-server:rocky-9-4.10.0
     volumes:
       - /data/freeipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

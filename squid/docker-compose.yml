@@ -3,7 +3,7 @@ version: '3.9'
 services:
   squid:
     container_name: squid
-    image: 10.200.101.20:8083/ubuntu/squid:5.2-22.04_beta
+    image: registry-docker.cloud.lab/ubuntu/squid:5.2-22.04_beta
     volumes:
       - /data/squid/etc/squid.conf:/etc/squid/squid.conf
       - /etc/localtime:/etc/localtime

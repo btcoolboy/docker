@@ -3,7 +3,7 @@ version: '3.9'
 services:
   portainer:
     container_name: portainer
-    image: 10.200.101.20:8083/portainer/portainer-ce:2.17.1
+    image: registry-docker.cloud.lab/portainer/portainer-ce:2.18.1
     volumes:
       - /data/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
