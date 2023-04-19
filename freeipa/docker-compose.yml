@@ -8,6 +8,7 @@ services:
       - /data/freeipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     network_mode: "host"
+    restart: always
     environment:
       - IPA_SERVER_HOSTNAME=vm-data-20.cloud.lab
     deploy:
