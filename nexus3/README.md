@@ -17,6 +17,8 @@ registry-quay.cloud.lab
 registry-k8s.cloud.lab
   k8s-group (8084):
   - k8s-proxy
+  - k8s-gcr-proxy
+  - gcr-proxy
 ```
 
 ```
