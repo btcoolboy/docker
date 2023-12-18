@@ -3,7 +3,7 @@ version: '3.9'
 services:
   freeipa:
     container_name: freeipa
-    image: registry-docker.cloud.lab/freeipa/freeipa-server:centos-9-stream-4.10.2
+    image: registry-docker.cloud.lab/freeipa/freeipa-server:centos-9-stream-4.11.0
     volumes:
       - /data/freeipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
