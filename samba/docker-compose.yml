@@ -1,9 +1,9 @@
 services:
   samba:
     container_name: samba
-    image: registry.cloud.lab/dperson/samba
+    image: registry.cloud.lab/dockurr/samba
     volumes:
-      - /data/backup:/mount
+      - /data/backup:/storage
       - /var/log/samba:/var/log/samba
       - /var/cache/samba:/var/cache/samba
       - /run/samba:/run/samba
@@ -12,10 +12,10 @@ services:
     network_mode: "host"
     restart: always
     environment:
-      - USER=debian;1231
-      - USERID=1000
-      - GROUPID=1000
-      - SHARE=share;/mount/;yes;no;no;all;none
+      - USER=debian
+      - PASS=1231
+      - UID=1000
+      - GID=1000
     deploy:
       resources:
         limits:
