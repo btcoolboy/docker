@@ -1,9 +1,7 @@
-version: '3.9'
-
 services:
   mysql:
     container_name: mysql
-    image: registry-docker.cloud.lab/mysql:5.7
+    image: registry.cloud.lab/mysql:8.4
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: postfixadmin
@@ -15,7 +13,7 @@ services:
     container_name: postfixadmin
     depends_on:
       - mysql
-    image: registry-docker.cloud.lab/postfixadmin
+    image: registry.cloud.lab/postfixadmin:3
     environment:
       POSTFIXADMIN_DB_TYPE: mysqli
       POSTFIXADMIN_DB_HOST: 127.0.0.1

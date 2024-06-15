@@ -1,9 +1,7 @@
-version: '3.9'
-
 services:
   postgres:
     container_name: postgres
-    image: registry-docker.cloud.lab/postgres:15
+    image: registry.cloud.lab/postgres:15
     environment:
       POSTGRES_PASSWORD: admin123
     volumes:
@@ -15,11 +13,11 @@ services:
           memory: 4096M
   adminer:
     container_name: adminer
-    image: registry-docker.cloud.lab/adminer
+    image: registry.cloud.lab/adminer:4
     network_mode: "host"
   nginx:
     container_name: nginx
-    image: registry-docker.cloud.lab/nginx
+    image: registry.cloud.lab/nginx:1.26
     volumes:
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./etc/nginx/ssl/cert.crt:/etc/nginx/ssl/cert.crt
