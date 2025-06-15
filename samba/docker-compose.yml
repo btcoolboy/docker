@@ -1,9 +1,9 @@
 services:
   samba:
     container_name: samba
-    image: registry.cloud.lab/dockurr/samba:4.20.2
+    image: dockurr/samba:4.21.6
     volumes:
-      - /data/backup:/storage
+      - /mnt/data/backup:/storage
       - /var/log/samba:/var/log/samba
       - /var/cache/samba:/var/cache/samba
       - /run/samba:/run/samba
